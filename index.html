@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cozy Barista ☕ | Virtual Cafe Web Toy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-day">
+  <div class="cafe-window" id="cafeWindow">
+    <div class="window-sky">
+      <div class="celestial-body" id="celestialBody">☀️</div>
+      <div class="clouds-group">
+        <span class="cloud cloud-1">☁️</span>
+        <span class="cloud cloud-2">☁️</span>
+      </div>
+      <div class="rain-container" id="rainContainer"></div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon">☕</span>
+        <div>
+          <h1 class="brand-title">Cozy Barista</h1>
+          <p class="brand-subtitle">Your aesthetic virtual drink toy</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnMusic" class="pill-btn" aria-label="Toggle Background Music" title="Toggle Lo-Fi Music">
+          <span class="btn-icon">🎵</span> <span class="btn-text">Music: OFF</span>
+        </button>
+        <button id="btnSound" class="pill-btn" aria-label="Toggle Sound Effects" title="Toggle Sound">
+          <span class="btn-icon">🔊</span> <span class="btn-text">Sound: ON</span>
+        </button>
+        <button id="btnTheme" class="pill-btn" aria-label="Toggle Day or Night Mode" title="Toggle Theme">
+          <span class="btn-icon">☀️</span> <span class="btn-text">Sunny Cafe</span>
+        </button>
+        <button id="btnStats" class="pill-btn" aria-label="Open Barista Log" title="Barista Stats">
+          <span class="btn-icon">📖</span> <span class="btn-text">Log</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="cafe-stage">
+      <div class="cup-showcase">
+        <div class="steam-container" id="steamContainer">
+          <span class="steam-puff p1"></span>
+          <span class="steam-puff p2"></span>
+          <span class="steam-puff p3"></span>
+        </div>
+
+        <div class="cup-wrapper" id="cupWrapper" title="Click me to take a sip!">
+          <div class="straw" id="straw">
+            <div class="straw-stripes"></div>
+          </div>
+
+          <div class="glass-cup" id="glassCup">
+            <div class="glass-shine"></div>
+
+            <div class="whipped-cream" id="whippedCream">
+              <svg viewBox="0 0 160 50" class="cream-svg">
+                <path d="M 10 45 Q 30 15 50 35 Q 80 5 110 35 Q 130 15 150 45 Z" fill="#fffdfa" />
+                <circle cx="80" cy="18" r="8" fill="#ff4d6d" class="cherry" id="creamCherry" />
+              </svg>
+            </div>
+
+            <div class="sprinkles-layer" id="sprinklesLayer">
+              <span class="sprinkle s1"></span>
+              <span class="sprinkle s2"></span>
+              <span class="sprinkle s3"></span>
+              <span class="sprinkle s4"></span>
+              <span class="sprinkle s5"></span>
+              <span class="sprinkle s6"></span>
+            </div>
+
+            <div class="ice-cubes-container" id="iceCubes">
+              <div class="ice-cube ice-1"></div>
+              <div class="ice-cube ice-2"></div>
+              <div class="ice-cube ice-3"></div>
+            </div>
+
+            <div class="liquid-container" id="liquid">
+              <div class="liquid-wave"></div>
+              <div class="liquid-body"></div>
+            </div>
+
+            <div class="boba-container" id="bobaContainer">
+              <span class="boba b1"></span>
+              <span class="boba b2"></span>
+              <span class="boba b3"></span>
+              <span class="boba b4"></span>
+              <span class="boba b5"></span>
+              <span class="boba b6"></span>
+              <span class="boba b7"></span>
+            </div>
+          </div>
+
+          <div class="cup-saucer"></div>
+        </div>
+
+        <div class="drink-status" id="drinkStatus">
+          <span class="status-indicator"></span>
+          <span id="statusText">Choose a drink base below to begin!</span>
+        </div>
+      </div>
+
+      <!-- Easter Egg Special Banner -->
+      <div class="easter-egg-banner" id="easterEggBanner">
+        <span class="easter-icon">☕✨</span>
+        <div class="easter-text">
+          <strong>Secret Unlocked:</strong> Barista's Secret Brew! Enjoy the magic!
+        </div>
+      </div>
+
+      <div class="controls-deck">
+        <section class="control-section">
+          <h2 class="section-title">
+            <span class="step-num">1</span> Choose Drink Base
+          </h2>
+          <div class="button-grid base-grid">
+            <button class="base-btn" data-base="espresso" data-color="#4a2c11" data-name="Classic Espresso">
+              <span class="item-emoji">☕</span>
+              <span class="item-label">Espresso</span>
+              <span class="item-desc">Rich & Bold</span>
+            </button>
+            <button class="base-btn" data-base="latte" data-color="#c49a6c" data-name="Cafe Latte">
+              <span class="item-emoji">🥛</span>
+              <span class="item-label">Latte</span>
+              <span class="item-desc">Smooth & Creamy</span>
+            </button>
+            <button class="base-btn" data-base="strawberry" data-color="#f59ba8" data-name="Strawberry Milk">
+              <span class="item-emoji">🍓</span>
+              <span class="item-label">Strawberry Milk</span>
+              <span class="item-desc">Sweet & Creamy</span>
+            </button>
+            <button class="base-btn" data-base="cocoa" data-color="#603813" data-name="Hot Cocoa">
+              <span class="item-emoji">🍫</span>
+              <span class="item-label">Hot Cocoa</span>
+              <span class="item-desc">Warm & Cozy</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <h2 class="section-title">
+            <span class="step-num">2</span> Add Custom Toppings
+          </h2>
+          <div class="button-grid toppings-grid">
+            <button class="topping-btn" data-topping="boba">
+              <span class="item-emoji">🧋</span>
+              <span class="item-label">Boba Pearls</span>
+            </button>
+            <button class="topping-btn" data-topping="ice">
+              <span class="item-emoji">🧊</span>
+              <span class="item-label">Ice Cubes</span>
+            </button>
+            <button class="topping-btn" data-topping="cream">
+              <span class="item-emoji">🍦</span>
+              <span class="item-label">Whipped Cream</span>
+            </button>
+            <button class="topping-btn" data-topping="sprinkles">
+              <span class="item-emoji">✨</span>
+              <span class="item-label">Sprinkles</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="control-section actions-section">
+          <h2 class="section-title">
+            <span class="step-num">3</span> Barista Actions
+          </h2>
+          <div class="action-buttons">
+            <button id="btnSip" class="action-btn btn-sip" title="Take a warm sip">
+              <span class="btn-emoji">😋</span> Take a Sip
+            </button>
+            <button id="btnRefill" class="action-btn btn-refill" title="Refill your current drink">
+              <span class="btn-emoji">🫗</span> Top Up
+            </button>
+            <button id="btnClean" class="action-btn btn-clean" title="Rinse and start fresh">
+              <span class="btn-emoji">✨</span> Fresh Cup
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Crafted with 💖 & HTML/CSS/JS for the <strong>SRM GitHub Community</strong> Entry</p>
+      <p class="hint-text">💡 Tip: Try adding all 4 toppings to discover a secret brew!</p>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="statsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>📖 Barista Cafe Log</h2>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-icon">☕</span>
+          <span class="stat-value" id="statDrinks">0</span>
+          <span class="stat-label">Drinks Crafted</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">✨</span>
+          <span class="stat-value" id="statSips">0</span>
+          <span class="stat-label">Sips Enjoyed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon" id="easterEggIcon">🔒</span>
+          <span class="stat-value" id="easterEggStatus">Secret Brew</span>
+          <span class="stat-label" id="easterEggDetail">Find the hidden combo!</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnResetStats" class="btn-danger">Clear My Stats</button>
+        <button id="btnCloseModal" class="pill-btn">Back to Cafe</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
