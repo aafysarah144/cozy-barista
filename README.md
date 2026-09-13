@@ -13,8 +13,7 @@
 ---
 
 ## 🌟 Live Demo
-🔗 **Live Demo Link:** `https://aafysarah144.github.io/cozy-barista/` *(Update with your repository URL after enabling GitHub Pages)*
-
+🔗 **Live Demo Link:** `https://aafysarah144.github.io/cozy-barista/` 
 ---
 
 ## 📖 Project Overview
